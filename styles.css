@@ -1,0 +1,598 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FCF5ED;
+}
+
+.day {
+    text-align: center;
+    margin: 50px;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin: 59px;
+}
+
+.araw {
+    margin-bottom: 200px;
+}
+
+.para {
+    margin: 15px;
+}
+
+.count,
+.para {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+footer {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.pg {
+    width: 50%;
+    /* Adjust the width as needed */
+    margin: 0 auto;
+}
+
+.para {
+    text-align: center;
+    width: fit-content;
+}
+
+.btn {
+    --bg: #e74c3c;
+    --text-color: #fff;
+    position: relative;
+    width: 150px;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    font: 20px;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.btn:active {
+    top: 4px;
+    box-shadow: #c0392b 0px 3px 2px, #000 0px 3px 5px;
+}
+
+.click,
+.surp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#play {
+    /* Variables */
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+}
+
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+    width: fit-content;
+}
+
+#play:hover .button_top {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+}
+
+#play:active .button_top {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
+}
+
+#flower-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    min-width: 540px;
+    margin: 100px auto;
+}
+
+#bar {
+    position: absolute;
+    width: 50%;
+    min-width: 600px;
+    height: 30px;
+    background-color: seagreen;
+    opacity: 0.4;
+    z-index: 16;
+    top: 1780px;
+}
+
+.flowers {
+    width: 100px;
+    /*  width should be 0.25x height */
+    height: 400px;
+    /* height should be 4x width     */
+    transform: translateX(0px);
+}
+
+.flower-heads {
+    position: absolute;
+    z-index: 12;
+    bottom: 0;
+    left: 0;
+    transition: transform 3s 1s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+    width: 80%;
+    height: 20%;
+}
+
+.flowers:hover .flower-heads {
+    margin-bottom: 15%;
+}
+
+.flower-stems,
+.flower-inverted-stems {
+    position: absolute;
+    left: 50%;
+    width: 10%;
+    height: 0px;
+    border-left: 0.25em solid #b4d28c;
+    transition: all 4s;
+}
+
+.flower-stems {
+    bottom: 25%;
+}
+
+.flower-inverted-stems {
+    border-color: #c2d9a3;
+    top: 55%;
+    opacity: 0.75;
+}
+
+.flower-inner-circles {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 17;
+    bottom: 230%;
+    left: 46%;
+    height: 0;
+    width: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #feac83, #f29072);
+    border: 0px solid #f67676;
+    transition: width 1s 1s, height 1s 1s, margin 1s 1s, border-width 0.5s 1.5s, border-color 3.5s 2s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.175) 0.1s;
+    margin-left: 19%;
+    margin-bottom: 19%;
+}
+
+.flowers:hover .flower-inner-circles {
+    transform: scale(1.1);
+}
+
+.flower-outer-circles {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 16;
+    bottom: 218%;
+    left: 33.5%;
+    height: 0;
+    width: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffff33, #fbdc32);
+    border: 0px solid #f5c83f;
+    transition: width 1s 1.5s, height 1s 1.5s, margin 1s 1.5s, border-width 0.5s 2s, border-color 3.5s 2.5s, transform 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+    margin-left: 31.25%;
+    margin-bottom: 31.25%;
+    opacity: 0.95;
+}
+
+.flowers:hover .flower-outer-circles {
+    transform: scale(1.1);
+}
+
+.flower-leaves {
+    position: absolute;
+    z-index: 11;
+    height: 0;
+    width: 0;
+    background-color: #a3c872;
+    border: 2px solid #97ba69;
+    opacity: 0;
+    transition: width 1s 1.5s, height 1s 1.5s, opacity 1s 1.5s, border-color 1s 1.5s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+.flowers:hover .flower-leaves {
+    margin-bottom: 15%;
+}
+
+.flower-left-leaves {
+    border-radius: 0 75% 0 75%;
+    right: 50%;
+    bottom: 31.25%;
+}
+
+.flower-right-leaves {
+    border-radius: 75% 0 75% 0;
+    left: 53%;
+    bottom: 37.5%;
+}
+
+
+/* ---------------------------------------- */
+
+
+/* sunflower 
+/* ---------------------------------------- */
+
+#sunflower-head {
+    transition: transform 3s 0.6s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#sunflower-inner-circle {
+    background-color: #eeb161;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffde97' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    border: 0px solid #e7962c;
+    transform: scale(1.1);
+}
+
+#sunflower:hover #sunflower-inner-circle {
+    transform: scale(1);
+}
+
+#sunflower:hover .sunflower-outer-circle-initialized {
+    transform: scale(0.1);
+    transition: width 1s 1.5s, height 1s 1.5s, margin 1s 1.5s, border-width 0.5s 2s, border-color 3.5s 2.5s, transform 1s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+.sunflower-petal-boxes {
+    position: absolute;
+    z-index: 13;
+    bottom: 213.75%;
+    left: 27.5%;
+    height: 75%;
+    width: 75%;
+    transform: rotate(0);
+    transition: all 1s;
+    /* spin effect */
+}
+
+.sunflower-petals {
+    position: absolute;
+    background-color: yellow;
+    border: 2px solid orange;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.7s, width 1.5s, height 1.5s;
+    /* shrink effect */
+}
+
+#sunflower:hover .sunflower-petals-initialized {
+    opacity: 0.8;
+    width: 48%;
+    height: 48%;
+    transition: opacity 1.2s, width 0.6s, height 0.6s;
+    /* growth effect */
+}
+
+#sunflower-petal-box-1 {
+    transform: rotate(12.25deg);
+    z-index: 13;
+}
+
+#sunflower:hover #sunflower-petal-box-1 {
+    transform: rotate(57.25deg);
+}
+
+.sunflower-petals-1 {
+    bottom: 55%;
+    right: 55%;
+    border-radius: 0% 100% 0 100%;
+    background: linear-gradient(135deg, #ffff33, #fbdc32);
+}
+
+#sunflower-petal-box-2 {
+    transform: rotate(34.75deg);
+    z-index: 12;
+}
+
+#sunflower:hover #sunflower-petal-box-2 {
+    transform: rotate(-10.25deg);
+}
+
+.sunflower-petals-2 {
+    bottom: 55%;
+    left: 55%;
+    border-radius: 100% 0 100% 0;
+    background: linear-gradient(90deg, #ffff33, #fbdc32);
+}
+
+#sunflower-petal-box-3 {
+    transform: rotate(57.25deg);
+    z-index: 13;
+}
+
+#sunflower:hover #sunflower-petal-box-3 {
+    transform: rotate(102.25deg);
+}
+
+.sunflower-petals-3 {
+    top: 55%;
+    left: 55%;
+    border-radius: 0 100% 0 100%;
+    background: linear-gradient(45deg, #ffff33, #fbdc32);
+}
+
+#sunflower-petal-box-4 {
+    transform: rotate(79.75deg);
+    z-index: 12;
+}
+
+#sunflower:hover #sunflower-petal-box-4 {
+    transform: rotate(34.75deg);
+}
+
+.sunflower-petals-4 {
+    top: 55%;
+    right: 55%;
+    border-radius: 100% 0 100% 0;
+    background: linear-gradient(22.5deg, #ffff33, #fbdc32);
+}
+
+#sunflower:hover .flower-leaves {
+    background: linear-gradient(135deg, #bcd896, #8fb75a);
+}
+
+#sunflower-left-leaf {
+    bottom: 45%;
+}
+
+#sunflower-right-leaf {
+    bottom: 57%;
+}
+
+
+/* ---------------------------------------- */
+
+
+/* flower-1
+/* ---------------------------------------- */
+
+#flower-1-stem {
+    transition: all 2s;
+}
+
+#flower-1-inverted-stem {
+    transition: all 4s 4s;
+}
+
+#flower-1-head {
+    bottom: -15%;
+    transition: transform 1.5s 0.3s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-1-inner-circle {
+    background: #ffed76;
+    border: 0px solid #fef7ae;
+    transform: scale(0.9);
+    transition: width 1s 0.3s, height 1s 0.3s, margin 1s 0.3s, border-width 0.5s 1.5s, border-color 3.5s 2s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.175) 0.1s;
+}
+
+.flowers:hover #flower-1-inner-circle {
+    transform: scale(1.1);
+}
+
+#flower-1-outer-circle {
+    background: #f8c475;
+    border: 0px solid #f1b355;
+    transform: scale(0.65);
+    transition: width 1s 0.5s, height 1s 0.5s, margin 1s 0.5s, border-width 0.5s 2s, border-color 3.5s 2.5s, transform 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+.flowers:hover #flower-1-outer-circle {
+    transform: scale(0.85);
+}
+
+#flower-1-left-leaf {
+    transition: width 1s 1s, height 1s 1s, opacity 1s 1s, border-color 1s 1s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-1-right-leaf {
+    transition: width 1s 1.25s, height 1s 1.25s, opacity 1s 1.25s, border-color 1s 1.25s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-2-stem {
+    transition: all 1.3s 0.5s;
+}
+
+#flower-2-inverted-stem {
+    transition: all 5s 4.5s;
+}
+
+#flower-2-head {
+    bottom: -25%;
+    transition: transform 1.4s 0.5s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-2-inner-circle {
+    background: #a6d6fa;
+    border: 0px solid #d2e8f8;
+    transform: scale(1.6);
+    transition: width 1s 0.6s, height 1s 0.6s, margin 1s 0.6s, border-width 0.5s 2s, border-color 3.5s 2.5s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.175) 0.1s;
+}
+
+.flowers:hover #flower-2-inner-circle {
+    transform: scale(1.7);
+}
+
+#flower-2-outer-circle {
+    background: #75bff8;
+    border: 0px solid #4e9edb;
+    transform: scale(0.9);
+    transition: width 1s 1s, height 1s 1s, margin 1s 1s, border-width 0.5s 2.5s, border-color 3.5s 3s, transform 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+.flowers:hover #flower-2-outer-circle {
+    transform: scale(1);
+}
+
+#flower-2-left-leaf {
+    bottom: 50%;
+    transition: width 1s 1.5s, height 1s 1.5s, opacity 1s 1.5s, border-color 1s 1.5s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-2-right-leaf {
+    transition: width 1s 1.75s, height 1s 1.75s, opacity 1s 1.75s, border-color 1s 1.75s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-3-stem {
+    transition: all 1.5s 1s;
+}
+
+#flower-3-inverted-stem {
+    transition: all 3s 5s;
+}
+
+#flower-3-head {
+    bottom: -25%;
+    transition: transform 1.4s 1s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-3-inner-circle {
+    background: #d9abff;
+    border: 0px solid #e2bfff;
+    transition: width 1s 1.1s, height 1s 1.1s, margin 1s 1.1s, border-width 0.5s 2s, border-color 3.5s 2.5s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.175) 0.1s;
+}
+
+.flowers:hover #flower-3-inner-circle {
+    transform: scale(1.1);
+}
+
+#flower-3-outer-circle {
+    background: #fca4c3;
+    border: 0px solid #ff75a6;
+    transform: scale(0.6);
+    transition: width 1s 1.5s, height 1s 1.5s, margin 1s 1.5s, border-width 0.5s 2.5s, border-color 3.5s 3s, transform 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+.flowers:hover #flower-3-outer-circle {
+    transform: scale(0.7);
+}
+
+#flower-3-left-leaf {
+    transition: width 1s 2s, height 1s 2s, opacity 1s 2s, border-color 1s 2s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-3-right-leaf {
+    bottom: 40%;
+    transition: width 1s 2.25s, height 1s 2.25s, opacity 1s 2.25s, border-color 1s 2.25s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#sunflower-stem {
+    transition: all 1.6s 1.3s;
+}
+
+#sunflower-inverted-stem {
+    transition: all 6s 5.5s;
+}
+
+#sunflower-head {
+    transition: transform 1.4s 1.5s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#sunflower-inner-circle {
+    transition: width 1s 1.6s, height 1s 1.6s, margin 1s 1.6s, border-width 0.5s 2.5s, border-color 3.5s 3s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.175) 0.1s;
+}
+
+#sunflower-outer-circle {
+    transition: width 1s 2s, height 1s 2s, margin 1s 2s, border-width 0.5s 3s, border-color 3.5s 3.5s, transform 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#sunflower-left-leaf {
+    bottom: 55%;
+    transition: width 1s 2.5s, height 1s 2.5s, opacity 1s 2.5s, border-color 1s 2.5s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s, background 0.5s;
+    background: linear-gradient(135deg, #bcd896, #8fb75a);
+}
+
+#sunflower-right-leaf {
+    bottom: 65%;
+    transition: width 1s 2.75s, height 1s 2.75s, opacity 1s 2.75s, border-color 1s 2.75s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s, background 0.5s;
+    background: linear-gradient(135deg, #bcd896, #8fb75a);
+}
+
+#flower-4-stem {
+    transition: all 1.5s 2s;
+}
+
+#flower-4-inverted-stem {
+    transition: all 4s 6s;
+}
+
+#flower-4-head {
+    bottom: -25%;
+    transition: transform 1.4s 2s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-4-inner-circle {
+    background: #f8c475;
+    border: 0px solid #f9d59f;
+    transform: scale(1.5);
+    transition: width 1s 2.1s, height 1s 2.1s, margin 1s 2.1s, border-width 0.5s 3s, border-color 3.5s 3.5s, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.175) 0.1s;
+}
+
+.flowers:hover #flower-4-inner-circle {
+    transform: scale(1.6);
+}
+
+#flower-4-outer-circle {
+    background: #f87575;
+    border: 0px solid #f25c5c;
+    transform: scale(0.9);
+    transition: width 1s 2.5s, height 1s 2.5s, margin 1s 2.5s, border-width 0.5s 3.5s, border-color 3.5s 4s, transform 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+.flowers:hover #flower-4-outer-circle {
+    transform: scale(1);
+}
+
+#flower-4-left-leaf {
+    bottom: 45%;
+    transition: width 1s 3s, height 1s 3s, opacity 1s 3s, border-color 1s 3s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
+
+#flower-4-right-leaf {
+    bottom: 35%;
+    transition: width 1s 3.25s, height 1s 3.25s, opacity 1s 3.25s, border-color 1s 3.25s, margin-bottom 0.8s cubic-bezier(.18, .89, .45, 1.36) 0.1s;
+}
